@@ -1,6 +1,132 @@
 /* Global */
+
+:root {
+    --themeColor: #064bb5;
+}
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    /* border: 1px solid black; */
+    font-family: 'Roboto', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: var(--themeColor);
+}
+
+.inner-container {
+    max-width: 1080px;
+    width: 100%;
+    padding: 0 2rem;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: center;
+    height: 45px;
+}
+
+header section {
+    display: inline-grid;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+header section .site-logo {
+    user-select: none;
+    font-weight: 900;
+    font-size: 1.5rem;
+}
+
+header nav.desktop-nav {
+    grid-column: 2 / span 1;
+    position: relative;
+}
+
+header nav.desktop-nav .menuItemSelector {
+    position: absolute;
+    transform: translateX(-50%);
+    padding: 0 0.5rem;
+    bottom: 0;
+    opacity: 0;
+    width: 70px;
+    height: 30px;
+    border-radius: 3rem;
+    box-sizing: content-box;
+    background-color: var(--themeColor);
+}
+
+header section nav.desktop-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    position: relative;
+}
+
+header section nav.desktop-nav ul a {
+    display: flex;
+    color: black;
+    padding: 5px 0.5rem;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    transition: .2s;
+    position: relative;
+}
+
+header section nav.desktop-nav ul a:hover {
+    color: white;
+}
+
+header section nav.desktop-nav ul a::before {
+    content: '';
+    opacity: 0;
+    transition: .2s;
+    width: 5px;
+    height: 5px;
+    background-color: var(--themeColor);
+    position: absolute;
+    transform: translateX(50%);
+    top: 0;
+    border-radius: 50%;
+    right: 50%;
+}
+
+header section nav.desktop-nav ul a.active {
+    color: white;
+}
+
+header section nav.desktop-nav ul a.active::before {
+    opacity: 0;
+}
+
+header section nav.desktop-nav ul a:hover::before {
+    opacity: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Tablet */
+@media only screen and (max-width: 1080px) {
+    header nav.desktop-nav {
+        display: none;
+    }
+
+    header section {
+        grid-template-columns: auto 70px;
+    }
 }
