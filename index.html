@@ -5,25 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jonathan Langton</title>
-    <link rel="stylesheet" href="./static/style.css">
-    <script src="./static/javascript.js" async></script>
+    <link rel="icon" type="image/x-icon" href="./static/images/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;900&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;900&display=swap" as="style" rel="stylesheet">
+    <link rel="stylesheet" href="./static/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TimelineMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/animation.gsap.js"></script>
+    <script src="./static/javascript.js" async></script>
 </head>
 <body>
     <a class="skip-to-content-link" href="#mainContent">SKIP TO CONTENT</a>
     <header>
         <section class="inner-container">
-            <p aria-label="Site logo" class="site-logo">Jonathan Langton</p>
+            <p aria-label="Site logo" class="site-logo">Jonathan.</p>
     
             <nav class="desktop-nav" aria-label="Primary">
 
                 <div class="menuItemSelector" aria-hidden="true"></div>
 
                 <ul>
-                    <li><a href="#" class="active">Home</a></li>
-                    <li><a href="#">Projects</a></li>
+                    <li><a href="#" class="active">Projects</a></li>
                     <li><a href="#">Skills</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
@@ -33,19 +37,26 @@
 
     <div class="banner">
         <div class="inner-container">
-            <h1>Nice to meet you.<br>I'm <span>Jonathan</span> ⚒️</h1>
+            <h1>
+                <span class="line1">Nice to meet you.</span>
+                <br>
+                <span class="line2">I'm <span style="color: var(--themeColor)">Jonathan</span> ⚒️</span>
+            </h1>
             <picture>
                 <source srcset="./static/images/portrait.webp" type="image/webp">
                 <source srcset="./static/images/portrait.png" type="image/png"> 
                 <img src="./static/images/portrait.webp" class="portrait-image" width="300" height="300" alt="A picture of Jonathan Langton">
-              </picture>
+            </picture>
         </div>
     </div>
 
     <main id="mainContent">
-
+        <div class="inner-container">
+            <h2>About Me</h2>
+            <br>
+            <p class="about-me">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam saepe veniam asperiores magnam excepturi ad aliquam officiis, facere aut amet! Quidem excepturi tempore natus quos non impedit, maxime ullam repudiandae.</p>
+        </div>
     </main>
-
 
 </body>
 </html>
