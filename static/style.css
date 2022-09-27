@@ -23,11 +23,28 @@ a {
     padding: 0 2rem;
 }
 
+/* Skip to content link */
+.skip-to-content-link {
+    background: var(--themeColor);
+    left: 3rem;
+    z-index: 10;
+    padding: 1rem 2rem;
+    border-radius: 0 0 .5rem .5rem;
+    color: white;
+    position: absolute;
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+}
+  
+.skip-to-content-link:focus {
+  transform: translateY(0%);
+}
+
 /* Header */
 header {
     display: flex;
     justify-content: center;
-    height: 45px;
+    height: 80px;
 }
 
 header section {
@@ -57,7 +74,7 @@ header nav.desktop-nav .menuItemSelector {
     height: 30px;
     border-radius: 3rem;
     box-sizing: content-box;
-    background-color: var(--themeColor);
+    background-color: black;
 }
 
 header section nav.desktop-nav ul {
@@ -81,32 +98,40 @@ header section nav.desktop-nav ul a:hover {
     color: white;
 }
 
-header section nav.desktop-nav ul a::before {
-    content: '';
-    opacity: 0;
-    transition: .2s;
-    width: 5px;
-    height: 5px;
-    background-color: var(--themeColor);
-    position: absolute;
-    transform: translateX(50%);
-    top: 0;
-    border-radius: 50%;
-    right: 50%;
-}
-
 header section nav.desktop-nav ul a.active {
     color: white;
 }
 
-header section nav.desktop-nav ul a.active::before {
-    opacity: 0;
+/* Banner */
+div.banner {
+    display: flex;
+    justify-content: center;
+    height: 50vh;
+    align-items: center;
 }
 
-header section nav.desktop-nav ul a:hover::before {
-    opacity: 0;
+div.banner .inner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
 }
 
+div.banner h1 {
+    font-size: 4rem;
+    font-weight: 900;
+}
+
+div.banner h1 span {
+    color: var(--themeColor);
+}
+
+div.banner img.portrait-image {
+    border-radius: 5rem 0;
+    border: 10px solid black;
+    filter: contrast(1.2);
+    /* filter: grayscale(1); */
+}
 
 
 
@@ -122,6 +147,7 @@ header section nav.desktop-nav ul a:hover::before {
 
 /* Tablet */
 @media only screen and (max-width: 1080px) {
+    /* Header */
     header nav.desktop-nav {
         display: none;
     }

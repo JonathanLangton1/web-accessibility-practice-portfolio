@@ -20,9 +20,7 @@ function moveDotToItem(event) {
     let activeItem = document.querySelector('header section nav.desktop-nav ul a.active');
     dot.style.left = event.target.offsetLeft + (event.target.offsetWidth / 2) + 'px';
     dot.style.width = event.target.offsetWidth + 'px';
-    console.log(event.target.firstChild != activeItem)
     if (event.target.firstChild != activeItem) {
-        console.log('hover element not same as active')
         activeItem.style.color = 'black';
     }
 }

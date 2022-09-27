@@ -12,19 +12,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <a class="skip-to-content-link" href="#mainContent">SKIP TO CONTENT</a>
     <header>
         <section class="inner-container">
             <p aria-label="Site logo" class="site-logo">Jonathan Langton</p>
     
-            <nav class="desktop-nav">
-                <!-- <svg height="10" width="10" style="left: 93px;">
-                    <circle cx="5" cy="5" r="3"></circle>
-                </svg> -->
-                <!-- <svg width="70" height="30" style="opacity: 1;">
-                    <rect width="70" height="30" rx="15" style="fill: var(--themeColor);border-radius: 1rem;"></rect>
-                </svg> -->
+            <nav class="desktop-nav" aria-label="Primary">
 
-                <div class="menuItemSelector"></div>
+                <div class="menuItemSelector" aria-hidden="true"></div>
 
                 <ul>
                     <li><a href="#" class="active">Home</a></li>
@@ -34,7 +29,23 @@
                 </ul>
             </nav>
         </section>
-
     </header>
+
+    <div class="banner">
+        <div class="inner-container">
+            <h1>Nice to meet you.<br>I'm <span>Jonathan</span> ⚒️</h1>
+            <picture>
+                <source srcset="./static/images/portrait.webp" type="image/webp">
+                <source srcset="./static/images/portrait.png" type="image/png"> 
+                <img src="./static/images/portrait.webp" class="portrait-image" width="300" height="300" alt="A picture of Jonathan Langton">
+              </picture>
+        </div>
+    </div>
+
+    <main id="mainContent">
+
+    </main>
+
+
 </body>
 </html>
