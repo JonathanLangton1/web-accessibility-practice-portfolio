@@ -115,7 +115,7 @@ header section nav.desktop-nav ul a.active {
 div.banner {
     display: flex;
     justify-content: center;
-    height: 50vh;
+    height: 70vh;
     align-items: center;
     position: fixed;
     width: 100%;
@@ -172,9 +172,10 @@ div.banner img.portrait-image {
 
 /* Main Content */
 #mainContent {
-    margin-top: calc(50vh + 80px);
+    margin-top: calc(70vh + 80px);
     display: flex;
     justify-content: center;
+    padding: 2rem;
 }
 
 #mainContent .inner-container {
@@ -184,6 +185,11 @@ div.banner img.portrait-image {
     margin-bottom: 100rem;
     border-radius: 3rem;
     color: white;
+}
+
+#mainContent .inner-container h2 {
+    font-size: 4rem;
+    margin-bottom: 3rem;
 }
 
 #mainContent .about-me {
@@ -205,12 +211,44 @@ div.banner img.portrait-image {
 
 /* Tablet */
 @media only screen and (max-width: 1080px) {
+    /* Global */
+    :root {
+        scroll-padding-top: 100px; 
+    }
+
     /* Header */
-    header nav.desktop-nav {
-        display: none;
+    header {
+        height: 100px;
     }
 
     header section {
-        grid-template-columns: auto 70px;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    header nav.desktop-nav {
+        grid-column: 1 / span 2;
+        grid-row: 2;
+    }
+
+    /* Banner */
+    div.banner .inner-container {
+        flex-direction: column;
+    }
+
+    div.banner h1 {
+        font-size: 2rem;
+    }
+
+    div.banner picture {
+        margin-left: unset;
+    }
+
+    /* Main Content */
+    #mainContent .inner-container {
+        padding: 3rem;
+    }
+
+    #mainContent .inner-container h2 {
+        font-size: 3rem;
     }
 }
