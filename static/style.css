@@ -174,15 +174,16 @@ div.banner img.portrait-image {
 #mainContent {
     margin-top: calc(70vh + 80px);
     display: flex;
-    justify-content: center;
+    align-items: center;
     padding: 2rem;
+    flex-direction: column;
 }
 
 #mainContent .inner-container {
     background-color: var(--themeColor);
     padding: 5rem;
     height: 38rem;
-    margin-bottom: 100rem;
+    margin-bottom: 5rem;
     border-radius: 3rem;
     color: white;
 }
@@ -228,9 +229,15 @@ div.banner img.portrait-image {
     header nav.desktop-nav {
         grid-column: 1 / span 2;
         grid-row: 2;
+        margin-left: 8px;
     }
 
     /* Banner */
+    div.banner {
+        top: 100px;
+        position: absolute;
+    }
+
     div.banner .inner-container {
         flex-direction: column;
     }
@@ -244,6 +251,10 @@ div.banner img.portrait-image {
     }
 
     /* Main Content */
+    #mainContent {
+        margin-top: calc(70vh + 100px);
+    }
+
     #mainContent .inner-container {
         padding: 3rem;
     }
