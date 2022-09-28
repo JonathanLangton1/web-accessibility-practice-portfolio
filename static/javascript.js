@@ -46,29 +46,24 @@ function setActiveitem(event) {
  * Banner animations
  */
 
+// Determine if device is mobile or not (to reduce animations for mobile devices for performance)
+let windowWidth = window.innerWidth;
+function isMobileDevice() {
+    if (windowWidth <= 1080) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 // Scroll linked animation (Desktop - using this on mobile doesn't look good)
 var controller = new ScrollMagic.Controller();
 
-var scene = new ScrollMagic.Scene({triggerElement: "#mainContent", duration: 300})
+var scene = new ScrollMagic.Scene({triggerElement: "#mainContent", duration: 130})
 // Animate in relation to scroll position
-// .setTween(".banner", {opacity: 0, scale: 0.95, marginTop: '50px'})
-.setTween(".banner", {opacity: 0})
-.addTo(controller);
-// } else {
-//     // View based animations (if element comes into view, do css transition)
-//     const observer = new IntersectionObserver((entries) => {
-//         entries.forEach((entry) => {
-//             if (entry.isIntersecting) {
-//                 entry.target.classList.add('show')
-//             } else {
-//                 entry.target.classList.remove('show')
-//             }
-//         })
-//     }, {rootMargin: '-40% 0px 0px 0px'})
-
-//     const hiddenElements = document.querySelectorAll('[scroll-animate]')
-//     hiddenElements.forEach((el) => {
-//         el.classList.add('.hidden')
-//         observer.observe(el) // Show when in view
-//     })
-// }
+if (isMobileDevice()) {
+    scene.setTween(".banner", {opacity: 0})
+} else {
+    scene.setTween(".banner", {opacity: 0, scale: 0.95, marginTop: '50px'})
+}
+scene.addTo(controller);
