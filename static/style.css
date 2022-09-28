@@ -20,9 +20,18 @@ a {
 }
 
 .inner-container {
-    max-width: 1080px;
+    max-width: 1200px;
     width: 100%;
     padding: 0 2rem;
+}
+
+.hidden {
+    opacity: 0;
+    transition: .4s;
+}
+
+.show {
+    opacity: 1;
 }
 
 /* Skip to content link */
@@ -53,6 +62,7 @@ header {
     height: 80px;
     background-color: #ffffffd4;
     backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
 }
 
 header section {
@@ -125,7 +135,7 @@ div.banner {
 
 div.banner .inner-container {
     display: flex;
-    justify-content: center;
+    max-height: 100%;
     align-items: center;
     gap: 4rem;
 }
@@ -217,6 +227,10 @@ div.banner img.portrait-image {
         scroll-padding-top: 100px; 
     }
 
+    .inner-container {
+        padding: 0 1rem;
+    }
+
     /* Header */
     header {
         height: 100px;
@@ -243,16 +257,24 @@ div.banner img.portrait-image {
     }
 
     div.banner h1 {
-        font-size: 2rem;
+        font-size: 8vw;
     }
 
     div.banner picture {
         margin-left: unset;
     }
 
+    div.banner img.portrait-image {
+        width: 200px;
+        border-radius: 3rem 0;
+        border-width: 6px;
+        border-radius: 8rem;
+    }
+
     /* Main Content */
     #mainContent {
         margin-top: calc(70vh + 100px);
+        padding: 0 1rem;
     }
 
     #mainContent .inner-container {

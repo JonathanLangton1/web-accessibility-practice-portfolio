@@ -43,11 +43,32 @@ function setActiveitem(event) {
 
 
 /**
- * Banner animation fade out on scroll
+ * Banner animations
  */
+
+// Scroll linked animation (Desktop - using this on mobile doesn't look good)
 var controller = new ScrollMagic.Controller();
 
 var scene = new ScrollMagic.Scene({triggerElement: "#mainContent", duration: 300})
 // Animate in relation to scroll position
-.setTween(".banner", {opacity: 0, scale: 0.95, marginTop: '50px'})
+// .setTween(".banner", {opacity: 0, scale: 0.95, marginTop: '50px'})
+.setTween(".banner", {opacity: 0})
 .addTo(controller);
+// } else {
+//     // View based animations (if element comes into view, do css transition)
+//     const observer = new IntersectionObserver((entries) => {
+//         entries.forEach((entry) => {
+//             if (entry.isIntersecting) {
+//                 entry.target.classList.add('show')
+//             } else {
+//                 entry.target.classList.remove('show')
+//             }
+//         })
+//     }, {rootMargin: '-40% 0px 0px 0px'})
+
+//     const hiddenElements = document.querySelectorAll('[scroll-animate]')
+//     hiddenElements.forEach((el) => {
+//         el.classList.add('.hidden')
+//         observer.observe(el) // Show when in view
+//     })
+// }
