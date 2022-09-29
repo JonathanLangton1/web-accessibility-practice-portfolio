@@ -3,7 +3,15 @@
  */
 const blob = document.querySelector('header nav.desktop-nav .menuItemSelector')
 const navItems = document.querySelectorAll('header nav.desktop-nav li')
-const activeItem = document.querySelector('header section nav.desktop-nav ul a.active')
+const activeItem = document.querySelector('header section nav.desktop-nav .active')
+
+function isItemSelected() {
+    if (document.querySelectorAll('header section nav.desktop-nav a.active').length === 0) {
+        return false;
+    } else {
+        return true;
+    }
+}
 
 // Move blob to active item on page load and set width
 blob.style.left = activeItem.offsetLeft + (activeItem.offsetWidth / 2) + 'px';
@@ -15,31 +23,74 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
     blob.style.transition = '0.5s';
 })()
 
-// Attach events and onclick event
+// Attach events
 navItems.forEach(item => {item.onmouseenter = moveBlobToItem; item.onmouseleave = moveBlobBackToActive; item.onclick = setActiveitem;})
 
 function moveBlobToItem(event) {
-    let activeItem = document.querySelector('header section nav.desktop-nav ul a.active');
+    let activeItem = document.querySelector('header section nav.desktop-nav .active');
     blob.style.left = event.target.offsetLeft + (event.target.offsetWidth / 2) + 'px';
     blob.style.width = event.target.offsetWidth + 'px';
-    if (event.target.firstChild != activeItem) {
-        activeItem.style.color = 'black';
+
+    if (isItemSelected()) {
+        event.target.firstChild.style.removeProperty("color")
+        if (event.target.firstChild != activeItem) {
+            activeItem.style.color = 'black';
+        }
+    } else {
+        navItems.forEach(item => { console.log(item, event.target)
+            if (item != activeItem && item != event.target) {
+                item.firstChild.style.color = 'black';
+            }
+        })
     }
 }
 
 function moveBlobBackToActive(event) {
-    let activeItem = document.querySelector('header section nav.desktop-nav ul a.active');
+    let activeItem = document.querySelector('header section nav.desktop-nav .active');
     blob.style.left = activeItem.offsetLeft + (activeItem.offsetWidth / 2) + 'px';
     blob.style.width = activeItem.offsetWidth + 'px';
-    activeItem.style.color = 'white';
+
+    if (isItemSelected()) {
+        event.target.firstChild.style.color = 'black';
+        activeItem.style.color = 'white';
+    } else {
+        navItems.forEach(item => { console.log(item, event.target)
+            if (item != activeItem && item != event.target) {
+                item.firstChild.style.color = 'white';
+            }
+        })
+    }
 }
 
 function setActiveitem(event) {
-    let oldItem = document.querySelector('header section nav.desktop-nav ul a.active');
+    let oldItem = document.querySelector('header section nav.desktop-nav .active');
     oldItem.classList.remove('active');
     event.target.classList.add('active');
-    navItems.forEach(item => {item.firstChild.style.removeProperty("color")})
+    
+    if (isItemSelected()) {
+        return;
+    } else {
+        navItems.forEach(item => {item.firstChild.style.removeProperty("color")})
+    }
 }
+
+
+// const observer = new IntersectionObserver((entries) => {
+//     entries.forEach((entry) => {
+//         if (entry.isIntersecting) {
+//             let oldItem = document.querySelector('header section nav.desktop-nav .active');
+//             oldItem.classList.remove('active');
+
+//             entry.target.classList.add('active')
+//             console.log('Update menu to reflect change', entry.target)
+//         }
+//     })
+// }, {rootMargin: '0px 0px -60% 0px'})
+
+// const sections = document.querySelectorAll('section')
+// sections.forEach((el) => observer.observe(el))
+
+
 
 
 /**

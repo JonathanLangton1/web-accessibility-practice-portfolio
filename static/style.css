@@ -81,6 +81,8 @@ header section .site-logo {
 header nav.desktop-nav {
     grid-column: 2 / span 1;
     position: relative;
+    width: fit-content;
+    justify-self: center;
 }
 
 header nav.desktop-nav .menuItemSelector {
@@ -105,7 +107,8 @@ header section nav.desktop-nav ul {
 
 header section nav.desktop-nav ul a {
     display: flex;
-    color: black;
+    /* color: black; */
+    color: white;
     padding: 5px 0.5rem;
     border-radius: 5px;
     border: 1px solid transparent;
@@ -187,10 +190,11 @@ div.banner img.portrait-image {
     align-items: center;
     padding: 2rem;
     flex-direction: column;
+    margin-bottom: 30rem;
 }
 
 #mainContent .inner-container {
-    background-color: var(--themeColor);
+    background: linear-gradient(305deg, rgba(106,106,106,1) -38%, rgba(0,0,0,1) 100%);
     padding: 5rem;
     height: 38rem;
     margin-bottom: 5rem;
@@ -244,12 +248,13 @@ div.banner img.portrait-image {
         grid-column: 1 / span 3;
         grid-row: 2;
         margin-left: 8px;
+        justify-self: left;
     }
 
     /* Banner */
     div.banner {
         top: 100px;
-        /* position: absolute; */
+        position: absolute;
     }
 
     div.banner .inner-container {
